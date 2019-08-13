@@ -1,0 +1,74 @@
+{
+  "name": "lora-relay-api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "author": "Seb Renauld <seb.renauld@gmail.com>",
+  "scripts": {
+    "test": "cross-env jest"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^18.3.1",
+    "ttn": "^2.3.3",
+    "ws": "^7.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "cross-env": "^5.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/plugin-transform-object-super": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "jest": "^24.8.0",
+    "sinon": "^7.4.1",
+    "winston": "^3.2.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,vue}",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "html",
+      "text-summary"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "coverageDirectory": "cov",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@babel/runtime-corejs2).+\\.js$"
+    ],
+    "transform": {
+      ".*\\.(js)$": "babel-jest"
+    }
+  },
+  "nyc": {
+    "reporter": [
+      "html",
+      "text",
+      "lcov"
+    ],
+    "check-coverage": true,
+    "include": [
+      "src/**/*.(js|vue)"
+    ],
+    "exclude": [
+      "src/index.js",
+      "src/example.js"
+    ],
+    "extension": [
+      "js",
+      "vue"
+    ],
+    "instrument": false,
+    "sourceMap": false
+  }
+}
